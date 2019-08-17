@@ -1,4 +1,3 @@
-version: 0.2
 runtime-versions:
   docker: 18
 phases:
