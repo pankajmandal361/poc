@@ -5,26 +5,26 @@
      # name: version
  pre_build:
    commands:
-     - aws configure set aws_access_key_id AKIAQNLBQZNCGIIJ72FA
-     - aws configure set aws_secret_access_key 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
+     # - aws configure set aws_access_key_id AKIAQNLBQZNCGIIJ72FA
+     # - aws configure set aws_secret_access_key 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
      - echo Logging in to Amazon ECR...
-     - aws --version
-     - ls
-     - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-     - REPOSITORY_URI=028658682692.dkr.ecr.us-east-1.amazonaws.com/nginx-repo
-     - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-     - IMAGE_TAG=${COMMIT_HASH:=latest}
+     # - aws --version
+     # - ls
+     # - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+     # - REPOSITORY_URI=028658682692.dkr.ecr.us-east-1.amazonaws.com/nginx-repo
+     # - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+     # - IMAGE_TAG=${COMMIT_HASH:=latest}
  build:
    commands:
     - echo Build started on date
     - echo Building the Docker image...
-    - docker build -t nginx-image .
+    # - docker build -t nginx-image .
     #- docker image build -f Dockerfile-patient . -t patient-image:latest
     #- docker image build -f Dockerfile-user-management . -t user-management:latest
     #- docker image build -f admin-console-web/Dockerfile admin-console-web/ -t admin-console:latest
     #- docker build -t $REPOSITORY_URI2:latest .
     #- docker build -t $REPOSITORY_URI3:latest .
-    - docker image tag nginx-image $REPOSITORY_URI
+    # - docker image tag nginx-image $REPOSITORY_URI
  post_build:
    commands:
      - echo Build completed on date
@@ -32,8 +32,8 @@
      #- docker push $REPOSITORY_URI1:latest
      #- docker push $REPOSITORY_URI2:latest
      #- docker push $REPOSITORY_URI3:latest
-     - docker push $REPOSITORY_URI
-     - echo Writing image definitions file...
+     # - docker push $REPOSITORY_URI
+     # - echo Writing image definitions file...
 # artifacts:
   #   files: imagedefinitions.json
    # - location
